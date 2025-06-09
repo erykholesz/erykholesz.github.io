@@ -9,45 +9,38 @@
       margin: 0;
       padding: 0;
       background: white;
-      cursor: none;
       height: 100vh;
       overflow: hidden;
       font-family: 'Times New Roman', serif;
     }
 
     .container {
-      position: relative;
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 40vw;
     }
 
     .project-block {
-      position: absolute;
       background-color: #c0cbb4;
+      display: block;
       z-index: 1;
     }
 
-    /* Randomized 3:4-ish size variations */
-    .s1 { width: 200px; height: 266px; }   /* vertical small */
-    .s2 { width: 240px; height: 180px; }   /* horizontal medium */
-    .s3 { width: 160px; height: 213px; }   /* vertical smaller */
-    .s4 { width: 180px; height: 135px; }   /* horizontal smaller */
-    .s5 { width: 220px; height: 293px; }   /* vertical tall */
-    .s6 { width: 260px; height: 195px; }   /* horizontal wider */
+    /* Varied sizes (3:4ish ratio) */
+    .s1 { width: 200px; height: 266px; }
+    .s2 { width: 240px; height: 180px; }
+    .s3 { width: 160px; height: 213px; }
+    .s4 { width: 180px; height: 135px; }
+    .s5 { width: 220px; height: 293px; }
+    .s6 { width: 260px; height: 195px; }
     .s7 { width: 180px; height: 240px; }
     .s8 { width: 150px; height: 200px; }
     .s9 { width: 230px; height: 173px; }
-
-    /* Random positions */
-    .project-block:nth-child(1) { top: 10%; left: 12%; }
-    .project-block:nth-child(2) { top: 20%; left: 35%; }
-    .project-block:nth-child(3) { top: 5%; left: 60%; }
-    .project-block:nth-child(4) { top: 40%; left: 18%; }
-    .project-block:nth-child(5) { top: 50%; left: 45%; }
-    .project-block:nth-child(6) { top: 25%; left: 70%; }
-    .project-block:nth-child(7) { top: 65%; left: 10%; }
-    .project-block:nth-child(8) { top: 75%; left: 35%; }
-    .project-block:nth-child(9) { top: 60%; left: 70%; }
 
     .cursor-text {
       position: absolute;
