@@ -1,78 +1,53 @@
 body {
- font-family: 'Times New Roman', Times, serif;
- background: #fff;
- color: #9caf88; /* sage green */
- margin: 0;
- padding: 3rem 1.5rem;
- line-height: 1.6;
- font-weight: 400;
+  margin: 0;
+  padding: 0;
+  background: white;
+  cursor: none;
+  overflow: hidden;
 }
 
-h1, h2 {
- font-weight: 700;
- color: #7a8b6f; /* a deeper sage green for headings */
- margin-bottom: 0.5rem;
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
-h1 {
- font-size: 2.5rem;
- margin-top: 0;
- margin-bottom: 1rem;
+.project-block {
+  position: absolute;
+  background-color: #c0cbb4; /* placeholder sage/greenish rectangles */
+  transition: transform 0.3s ease;
 }
 
-h2 {
- font-size: 1.75rem;
- margin-top: 3rem;
- margin-bottom: 1rem;
+.project-block:hover {
+  transform: scale(1.05);
 }
 
-main {
- max-width: 700px;
- margin: 0 auto;
- padding: 0 1rem;
+/* Rectangle dimensions */
+.horizontal {
+  width: 240px;
+  height: 180px;
 }
 
-section {
- margin-bottom: 3rem;
- border-bottom: 1px solid #d6e1cd; /* light sage border */
- padding-bottom: 2rem;
+.vertical {
+  width: 180px;
+  height: 240px;
 }
 
-p {
- font-size: 1rem;
- max-width: 500px;
- color: #9caf88; /* same sage green as body */
-}
+/* Manually scatter them (example positions) */
+.project-block:nth-child(1) { top: 10%; left: 15%; }
+.project-block:nth-child(2) { top: 50%; left: 20%; }
+.project-block:nth-child(3) { top: 30%; left: 60%; }
+.project-block:nth-child(4) { top: 70%; left: 50%; }
 
-a {
- color: #7a8b6f; /* deeper sage for links */
- text-decoration: none;
- border-bottom: 1px solid transparent;
- transition: border-bottom 0.3s ease;
-}
-
-a:hover {
- border-bottom: 1px solid #7a8b6f;
-}
-
-.video-header {
- display: none; /* keeping video hidden */
-}
-
-@media (max-width: 600px) {
- body {
-   padding: 2rem 1rem;
- }
-
- h1 {
-   font-size: 2rem;
- }
-
- h2 {
-   font-size: 1.5rem;
- }
-
- main {
-   max-width: 100%;
- }
+/* Floating text that follows cursor */
+.cursor-text {
+  position: absolute;
+  pointer-events: none;
+  font-family: 'Times New Roman', serif;
+  font-size: 0.85rem;
+  color: #7a8b6f;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  text-transform: lowercase;
+  max-width: 200px;
 }
