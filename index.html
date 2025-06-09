@@ -10,31 +10,39 @@
       padding: 0;
       background: white;
       height: 100vh;
-      overflow: hidden;
       font-family: 'Times New Roman', serif;
-    }
-
-    .container {
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
+      overflow: hidden;
       display: flex;
-      gap: 20px;
-      flex-direction: row;
-      align-items: flex-start;
     }
 
-    .column {
+    .left-half, .right-half {
+      width: 50vw;
+      height: 100vh;
+    }
+
+    .left-half {
+      background: white;
+    }
+
+    .right-half {
+      position: relative;
+      overflow-y: auto;
+      background: white;
+      border-left: 1px solid #ddd;
+    }
+
+    .scroll-column {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      align-items: center;
+      padding-top: 20px;
+      gap: 5px;
     }
 
     .project-block {
       background-color: #e6e6e6;
       display: block;
-      z-index: 1;
+      cursor: pointer;
     }
 
     .s1 { width: 200px; height: 266px; }
@@ -58,26 +66,39 @@
       z-index: 100;
       max-width: 200px;
     }
+
+    .poem-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 30px;
+      width: 100%;
+      height: 100%;
+      background: white;
+      overflow-y: auto;
+      display: none;
+      color: #222;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="column">
-      <a href="#" class="project-block s1" data-title="I can no longer tell the difference between waiting and being."></a>
-      <a href="#" class="project-block s2" data-title="I refuse to be contained in any idea of form."></a>
-      <a href="#" class="project-block s3" data-title="The soul is the last address of all theory."></a>
+  <div class="left-half"></div>
+  <div class="right-half">
+    <div class="scroll-column">
+      <div class="project-block s1" data-title="descent of alette" data-index="0"></div>
+      <div class="project-block s2" data-title="how spring comes" data-index="1"></div>
+      <div class="project-block s3" data-title="close to me & closer..." data-index="2"></div>
+      <div class="project-block s4" data-title="at night the states" data-index="3"></div>
+      <div class="project-block s5" data-title="in the pines" data-index="4"></div>
+      <div class="project-block s6" data-title="gratitude" data-index="5"></div>
+      <div class="project-block s7" data-title="reason and other women" data-index="6"></div>
+      <div class="project-block s8" data-title="mysteries of small houses" data-index="7"></div>
+      <div class="project-block s9" data-title="culture of one" data-index="8"></div>
     </div>
-    <div class="column">
-      <a href="#" class="project-block s4" data-title="One does not see the kingdom of heaven unless one is poor."></a>
-      <a href="#" class="project-block s5" data-title="I do not doubt I am bound for the edge of something."></a>
-      <a href="#" class="project-block s6" data-title="My thinking moves like a ghost through a wall."></a>
-    </div>
-    <div class="column">
-      <a href="#" class="project-block s7" data-title="My voice breaks everything and reassembles it."></a>
-      <a href="#" class="project-block s8" data-title="I had to make a world out of my need."></a>
-      <a href="#" class="project-block s9" data-title="There's something wrong with the sky and it's me."></a>
-    </div>
+    <div class="poem-container" id="poemContainer"></div>
   </div>
 
   <div class="cursor-text" id="cursorText"></div>
@@ -85,6 +106,19 @@
   <script>
     const cursorText = document.getElementById('cursorText');
     const blocks = document.querySelectorAll('.project-block');
+    const poemContainer = document.getElementById('poemContainer');
+
+    const poems = [
+      `"Descent of Alette"\n\nI began to speak in the voices\nof the underground. I began\nto speak in phrases. I was\nin prison. I was in a system.\nI was a freedom fighter.`,
+      `"How Spring Comes"\n\nShe came from the air\nlike pollen or cloud drift.\nThe trees barely noticed\nuntil she touched one.`,
+      `"Close to Me & Closer..."\n\nI cannot rest in any memory\nI use memory to walk toward you.\nYou, who are a place\nI haven’t yet been.`,
+      `"At Night The States"\n\nAll night I have the states\nand every one of them lies.\nIn each, a room\nwhere silence closes.`,
+      `"In the Pines"\n\nNothing sings here but absence.\nThe pine needles are my hair.\nThe dark is what I own.`,
+      `"Gratitude"\n\nI am grateful for clouds\nfor the violent hands\nthat don’t return.\nFor the hole that stayed a hole.`,
+      `"Reason and Other Women"\n\nShe walked through reason like\na forest, breaking the rules\nof logic with each breath.`,
+      `"Mysteries of Small Houses"\n\nWhat lives here\nisn’t what died here.\nRooms remember\ndifferently.`,
+      `"Culture of One"\n\nI am a multitude\nbuilt by solitude.\nThe voice you hear\nis my city."
+    ];
 
     function randomPastel() {
       const hue = Math.floor(Math.random() * 360);
@@ -100,4 +134,21 @@
       });
 
       block.addEventListener('mouseleave', () => {
-        c
+        cursorText.style.opacity = '0';
+      });
+
+      block.addEventListener('click', () => {
+        const index = block.getAttribute('data-index');
+        poemContainer.innerText = poems[index];
+        poemContainer.style.display = 'block';
+      });
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      cursorText.style.left = e.pageX + 15 + 'px';
+      cursorText.style.top = e.pageY + 15 + 'px';
+    });
+  </script>
+
+</body>
+</html>
