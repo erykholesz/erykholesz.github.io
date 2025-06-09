@@ -48,7 +48,7 @@ body {
   position: absolute;
   pointer-events: none;
   font-size: 0.85rem;
-  color: #7a8b6f;
+  color: #161914;
   opacity: 0;
   transition: opacity 0.2s ease;
   text-transform: lowercase;
