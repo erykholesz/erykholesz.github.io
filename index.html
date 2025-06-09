@@ -2,37 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eryk Holesz – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="video-header">
-    <video autoplay muted loop playsinline>
-      <source src="assets/intro.mp4" type="video/mp4" />
-    </video>
-    <div class="overlay">
-      <h1>Eryk Holesz</h1>
-      <p>idk</p>
-    </div>
-  </header>
 
-  <main>
-    <section>
-      <h2>About Me</h2>
-      <p>This is a short intro about you. Add your artistic vision, background, or mission here.</p>
-    </section>
+  <div class="cursor-text" id="cursorText">this is a piece of text that will soon mean something.</div>
 
-    <section>
-      <h2>Portfolio</h2>
-      <p>Include your works here — you can use a gallery grid or links to your projects.</p>
-    </section>
+  <div class="container">
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: erykholesz@gmail.com</p>
-      <p>Instagram: @erykholesz</p>
-    </section>
-  </main>
+    <!-- Example clickable blocks -->
+    <a href="projects/project1.html" class="project-block horizontal" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="projects/project2.html" class="project-block vertical" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="projects/project3.html" class="project-block horizontal" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="projects/project4.html" class="project-block vertical" data-title="this is a piece of text that will soon mean something."></a>
+
+  </div>
+
+  <script>
+    const cursorText = document.getElementById('cursorText');
+    const blocks = document.querySelectorAll('.project-block');
+
+    document.addEventListener('mousemove', (e) => {
+      cursorText.style.left = e.pageX + 15 + 'px';
+      cursorText.style.top = e.pageY + 15 + 'px';
+    });
+
+    blocks.forEach(block => {
+      block.addEventListener('mouseenter', () => {
+        cursorText.textContent = block.getAttribute('data-title');
+        cursorText.style.opacity = '1';
+      });
+      block.addEventListener('mouseleave', () => {
+        cursorText.style.opacity = '0';
+      });
+    });
+  </script>
+
 </body>
 </html>
