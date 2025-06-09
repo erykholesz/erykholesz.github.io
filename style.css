@@ -1,0 +1,78 @@
+body {
+ font-family: 'Times New Roman', Times, serif;
+ background: #fff;
+ color: #9caf88; /* sage green */
+ margin: 0;
+ padding: 3rem 1.5rem;
+ line-height: 1.6;
+ font-weight: 400;
+}
+
+h1, h2 {
+ font-weight: 700;
+ color: #7a8b6f; /* a deeper sage green for headings */
+ margin-bottom: 0.5rem;
+}
+
+h1 {
+ font-size: 2.5rem;
+ margin-top: 0;
+ margin-bottom: 1rem;
+}
+
+h2 {
+ font-size: 1.75rem;
+ margin-top: 3rem;
+ margin-bottom: 1rem;
+}
+
+main {
+ max-width: 700px;
+ margin: 0 auto;
+ padding: 0 1rem;
+}
+
+section {
+ margin-bottom: 3rem;
+ border-bottom: 1px solid #d6e1cd; /* light sage border */
+ padding-bottom: 2rem;
+}
+
+p {
+ font-size: 1rem;
+ max-width: 500px;
+ color: #9caf88; /* same sage green as body */
+}
+
+a {
+ color: #7a8b6f; /* deeper sage for links */
+ text-decoration: none;
+ border-bottom: 1px solid transparent;
+ transition: border-bottom 0.3s ease;
+}
+
+a:hover {
+ border-bottom: 1px solid #7a8b6f;
+}
+
+.video-header {
+ display: none; /* keeping video hidden */
+}
+
+@media (max-width: 600px) {
+ body {
+   padding: 2rem 1rem;
+ }
+
+ h1 {
+   font-size: 2rem;
+ }
+
+ h2 {
+   font-size: 1.5rem;
+ }
+
+ main {
+   max-width: 100%;
+ }
+}
