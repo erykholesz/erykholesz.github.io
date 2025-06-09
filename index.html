@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio</title>
   <style>
     body {
@@ -24,13 +24,24 @@
       background: white;
       position: relative;
       overflow-y: auto;
-      border-right: 1px solid #ddd;
+      /* remove border */
+      border: none;
+      padding: 30px;
+      box-sizing: border-box;
+      color: #222;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     .right-half {
       position: relative;
       overflow-y: auto;
       background: white;
+      /* hide scrollbar */
+      scrollbar-width: none; /* Firefox */
+    }
+    .right-half::-webkit-scrollbar {
+      display: none; /* Chrome, Safari */
     }
 
     .scroll-column {
@@ -45,23 +56,28 @@
       background-color: #e6e6e6;
       display: block;
       cursor: pointer;
+      width: 220px; /* fixed width for all */
+      border-radius: 4px;
+      box-sizing: border-box;
+      user-select: none;
     }
 
-    .s1 { width: 200px; height: 266px; }
-    .s2 { width: 240px; height: 180px; }
-    .s3 { width: 160px; height: 213px; }
-    .s4 { width: 180px; height: 135px; }
-    .s5 { width: 220px; height: 293px; }
-    .s6 { width: 260px; height: 195px; }
-    .s7 { width: 180px; height: 240px; }
-    .s8 { width: 150px; height: 200px; }
-    .s9 { width: 230px; height: 173px; }
+    /* variable heights for vertical/horizontal shapes */
+    .s1 { height: 293px; }
+    .s2 { height: 180px; }
+    .s3 { height: 213px; }
+    .s4 { height: 135px; }
+    .s5 { height: 266px; }
+    .s6 { height: 195px; }
+    .s7 { height: 240px; }
+    .s8 { height: 200px; }
+    .s9 { height: 173px; }
 
     .cursor-text {
       position: absolute;
       pointer-events: none;
       font-size: 0.85rem;
-      color: #222;
+      color: #111; /* darker text */
       opacity: 0;
       transition: opacity 0.2s ease;
       text-transform: lowercase;
@@ -69,25 +85,12 @@
       max-width: 200px;
     }
 
-    .poem-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 30px;
-      width: 100%;
-      height: 100%;
-      background: white;
-      overflow-y: auto;
-      color: #222;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
   </style>
 </head>
 <body>
 
-  <div class="left-half">
-    <div class="poem-container" id="poemContainer"></div>
+  <div class="left-half" id="poemContainer">
+    <!-- full poem / prose text will appear here -->
   </div>
   <div class="right-half">
     <div class="scroll-column">
@@ -110,16 +113,34 @@
     const blocks = document.querySelectorAll('.project-block');
     const poemContainer = document.getElementById('poemContainer');
 
-    const poems = [
-      `"Descent of Alette"\n\nI began to speak in the voices\nof the underground. I began\nto speak in phrases. I was\nin prison. I was in a system.\nI was a freedom fighter.`,
-      `"How Spring Comes"\n\nShe came from the air\nlike pollen or cloud drift.\nThe trees barely noticed\nuntil she touched one.`,
-      `"Close to Me & Closer..."\n\nI cannot rest in any memory\nI use memory to walk toward you.\nYou, who are a place\nI haven’t yet been.`,
-      `"At Night The States"\n\nAll night I have the states\nand every one of them lies.\nIn each, a room\nwhere silence closes.`,
-      `"In the Pines"\n\nNothing sings here but absence.\nThe pine needles are my hair.\nThe dark is what I own.`,
-      `"Gratitude"\n\nI am grateful for clouds\nfor the violent hands\nthat don’t return.\nFor the hole that stayed a hole.`,
-      `"Reason and Other Women"\n\nShe walked through reason like\na forest, breaking the rules\nof logic with each breath.`,
-      `"Mysteries of Small Houses"\n\nWhat lives here\nisn’t what died here.\nRooms remember\ndifferently.`,
-      `"Culture of One"\n\nI am a multitude\nbuilt by solitude.\nThe voice you hear\nis my city.`
+    // Placeholder long prose pieces (~1000–1200 words each)
+    const longProse = [
+      `Descent of Alette - prose sample:\n\n` +
+      `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed... (Imagine 1000+ words here for demo)`,
+      
+      `How Spring Comes - prose sample:\n\n` +
+      `Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames...`,
+
+      `Close to Me & Closer... - prose sample:\n\n` +
+      `Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta...`,
+
+      `At Night The States - prose sample:\n\n` +
+      `Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Curabitur arcu erat...`,
+
+      `In the Pines - prose sample:\n\n` +
+      `Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Pellentesque in ipsum id orci porta dapibus...`,
+
+      `Gratitude - prose sample:\n\n` +
+      `Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus...`,
+
+      `Reason and Other Women - prose sample:\n\n` +
+      `Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus...`,
+
+      `Mysteries of Small Houses - prose sample:\n\n` +
+      `Sed porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui...`,
+
+      `Culture of One - prose sample:\n\n` +
+      `Nulla quis lorem ut libero malesuada feugiat. Pellentesque in ipsum id orci porta dapibus. Curabitur aliquet quam id dui posuere blandit...`
     ];
 
     function randomPastel() {
@@ -141,7 +162,7 @@
 
       block.addEventListener('click', () => {
         const index = block.getAttribute('data-index');
-        poemContainer.innerText = poems[index];
+        poemContainer.innerText = longProse[index];
       });
     });
 
