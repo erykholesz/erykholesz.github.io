@@ -24,28 +24,30 @@
     .project-block {
       position: absolute;
       background-color: #c0cbb4;
-      transition: transform 0.2s ease;
       z-index: 1;
     }
 
-    .project-block.horizontal {
-      width: 240px;
-      height: 180px;
-    }
+    /* Randomized 3:4-ish size variations */
+    .s1 { width: 200px; height: 266px; }   /* vertical small */
+    .s2 { width: 240px; height: 180px; }   /* horizontal medium */
+    .s3 { width: 160px; height: 213px; }   /* vertical smaller */
+    .s4 { width: 180px; height: 135px; }   /* horizontal smaller */
+    .s5 { width: 220px; height: 293px; }   /* vertical tall */
+    .s6 { width: 260px; height: 195px; }   /* horizontal wider */
+    .s7 { width: 180px; height: 240px; }
+    .s8 { width: 150px; height: 200px; }
+    .s9 { width: 230px; height: 173px; }
 
-    .project-block.vertical {
-      width: 180px;
-      height: 240px;
-    }
-
+    /* Random positions */
     .project-block:nth-child(1) { top: 10%; left: 12%; }
-    .project-block:nth-child(2) { top: 45%; left: 20%; }
-    .project-block:nth-child(3) { top: 25%; left: 55%; }
-    .project-block:nth-child(4) { top: 65%; left: 50%; }
-
-    .project-block:hover {
-      transform: scale(1.03);
-    }
+    .project-block:nth-child(2) { top: 20%; left: 35%; }
+    .project-block:nth-child(3) { top: 5%; left: 60%; }
+    .project-block:nth-child(4) { top: 40%; left: 18%; }
+    .project-block:nth-child(5) { top: 50%; left: 45%; }
+    .project-block:nth-child(6) { top: 25%; left: 70%; }
+    .project-block:nth-child(7) { top: 65%; left: 10%; }
+    .project-block:nth-child(8) { top: 75%; left: 35%; }
+    .project-block:nth-child(9) { top: 60%; left: 70%; }
 
     .cursor-text {
       position: absolute;
@@ -62,10 +64,15 @@
 <body>
 
   <div class="container">
-    <a href="#" class="project-block horizontal" data-title="this is a piece of text that will soon mean something."></a>
-    <a href="#" class="project-block vertical" data-title="this is a piece of text that will soon mean something."></a>
-    <a href="#" class="project-block horizontal" data-title="this is a piece of text that will soon mean something."></a>
-    <a href="#" class="project-block vertical" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s1" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s2" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s3" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s4" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s5" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s6" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s7" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s8" data-title="this is a piece of text that will soon mean something."></a>
+    <a href="#" class="project-block s9" data-title="this is a piece of text that will soon mean something."></a>
   </div>
 
   <div class="cursor-text" id="cursorText"></div>
