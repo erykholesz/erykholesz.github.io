@@ -5,89 +5,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: white;
-      height: 100vh;
-      font-family: 'Times New Roman', serif;
-      overflow: hidden;
-      display: flex;
-      color: #222;
-    }
+ <style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    height: 100vh;
+    font-family: 'Times New Roman', serif;
+    overflow: hidden;
+    display: flex;
+  }
 
-    .left-half, .right-half {
-      height: 100vh;
-      overflow-y: auto;
-      box-sizing: border-box;
-    }
+  .left-half, .right-half {
+    width: 50vw;
+    height: 100vh;
+  }
 
-    .left-half {
-      width: 50vw;
-      padding: 30px;
-      font-size: 1rem;
-      line-height: 1.6;
-      background: white;
-      border: none;
-      user-select: text;
-    }
+  .left-half {
+    background: white;
+    position: relative;
+    overflow-y: auto;
+  }
 
-    .right-half {
-      width: 50vw;
-      background: white;
-      scrollbar-width: none; /* Firefox */
-      position: relative;
-    }
-    .right-half::-webkit-scrollbar {
-      display: none; /* Chrome, Safari */
-    }
+  .right-half {
+    position: relative;
+    overflow: hidden;
+    background: white;
+  }
 
-    .scroll-column {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      gap: 5px;
-      overflow-y: auto;
-      height: 100%;
-    }
+  .scroll-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 5px;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+  }
 
-    .project-block {
-      background-color: #e6e6e6;
-      display: block;
-      cursor: pointer;
-      border-radius: 4px;
-      box-sizing: border-box;
-      user-select: none;
-      width: 440px; /* doubled width */
-      transition: none !important; /* no scaling or puff on hover */
-    }
+  .scroll-column::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
 
-    /* variable heights for vertical/horizontal shapes */
-    .s1 { height: 293px; }
-    .s2 { height: 180px; }
-    .s3 { height: 213px; }
-    .s4 { height: 135px; }
-    .s5 { height: 266px; }
-    .s6 { height: 195px; }
-    .s7 { height: 240px; }
-    .s8 { height: 200px; }
-    .s9 { height: 173px; }
+  .project-block {
+    background-color: #e6e6e6;
+    display: block;
+    cursor: pointer;
+    width: 240px; /* uniform width */
+  }
 
-    .cursor-text {
-      position: absolute;
-      pointer-events: none;
-      font-size: 0.85rem;
-      color: #111; /* darker text */
-      opacity: 0;
-      transition: opacity 0.2s ease;
-      text-transform: lowercase;
-      z-index: 100;
-      max-width: 200px;
-      user-select: none;
-    }
-  </style>
+  /* Maintain 3:4 ratio (vertical and horizontal) */
+  .s1, .s3, .s5, .s7 {
+    height: 320px; /* vertical */
+  }
+
+  .s2, .s4, .s6, .s8, .s9 {
+    height: 180px; /* horizontal */
+  }
+
+  .cursor-text {
+    position: absolute;
+    pointer-events: none;
+    font-size: 14pt;
+    font-style: italic;
+    color: #111;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    text-transform: lowercase;
+    z-index: 100;
+    max-width: 200px;
+  }
+
+  .poem-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow-y: auto;
+    color: #222;
+    font-size: 24pt;
+    line-height: 1.6;
+  }
+</style>
 </head>
 <body>
 
