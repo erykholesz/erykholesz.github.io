@@ -22,13 +22,15 @@
 
     .left-half {
       background: white;
+      position: relative;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
     }
 
     .right-half {
       position: relative;
       overflow-y: auto;
       background: white;
-      border-left: 1px solid #ddd;
     }
 
     .scroll-column {
@@ -76,7 +78,6 @@
       height: 100%;
       background: white;
       overflow-y: auto;
-      display: none;
       color: #222;
       font-size: 1rem;
       line-height: 1.6;
@@ -85,7 +86,9 @@
 </head>
 <body>
 
-  <div class="left-half"></div>
+  <div class="left-half">
+    <div class="poem-container" id="poemContainer"></div>
+  </div>
   <div class="right-half">
     <div class="scroll-column">
       <div class="project-block s1" data-title="descent of alette" data-index="0"></div>
@@ -98,7 +101,6 @@
       <div class="project-block s8" data-title="mysteries of small houses" data-index="7"></div>
       <div class="project-block s9" data-title="culture of one" data-index="8"></div>
     </div>
-    <div class="poem-container" id="poemContainer"></div>
   </div>
 
   <div class="cursor-text" id="cursorText"></div>
@@ -117,7 +119,7 @@
       `"Gratitude"\n\nI am grateful for clouds\nfor the violent hands\nthat don’t return.\nFor the hole that stayed a hole.`,
       `"Reason and Other Women"\n\nShe walked through reason like\na forest, breaking the rules\nof logic with each breath.`,
       `"Mysteries of Small Houses"\n\nWhat lives here\nisn’t what died here.\nRooms remember\ndifferently.`,
-      `"Culture of One"\n\nI am a multitude\nbuilt by solitude.\nThe voice you hear\nis my city."
+      `"Culture of One"\n\nI am a multitude\nbuilt by solitude.\nThe voice you hear\nis my city.`
     ];
 
     function randomPastel() {
@@ -140,7 +142,6 @@
       block.addEventListener('click', () => {
         const index = block.getAttribute('data-index');
         poemContainer.innerText = poems[index];
-        poemContainer.style.display = 'block';
       });
     });
 
