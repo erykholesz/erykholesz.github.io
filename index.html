@@ -20,11 +20,15 @@
       right: 10px;
       transform: translateY(-50%);
       display: flex;
-      flex-wrap: wrap;
+      gap: 20px;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .column {
+      display: flex;
       flex-direction: column;
-      align-items: flex-end;
       gap: 10px;
-      max-height: 90vh;
     }
 
     .project-block {
@@ -33,7 +37,6 @@
       z-index: 1;
     }
 
-    /* Varied 3:4ish rectangles with some horizontal & vertical mix */
     .s1 { width: 200px; height: 266px; }
     .s2 { width: 240px; height: 180px; }
     .s3 { width: 160px; height: 213px; }
@@ -48,7 +51,7 @@
       position: absolute;
       pointer-events: none;
       font-size: 0.85rem;
-      color: #222; /* darker for contrast */
+      color: #222;
       opacity: 0;
       transition: opacity 0.2s ease;
       text-transform: lowercase;
@@ -60,15 +63,21 @@
 <body>
 
   <div class="container">
-    <a href="#" class="project-block s1" data-title="I can no longer tell the difference between waiting and being."></a>
-    <a href="#" class="project-block s2" data-title="I refuse to be contained in any idea of form."></a>
-    <a href="#" class="project-block s3" data-title="The soul is the last address of all theory."></a>
-    <a href="#" class="project-block s4" data-title="One does not see the kingdom of heaven unless one is poor."></a>
-    <a href="#" class="project-block s5" data-title="I do not doubt I am bound for the edge of something."></a>
-    <a href="#" class="project-block s6" data-title="My thinking moves like a ghost through a wall."></a>
-    <a href="#" class="project-block s7" data-title="My voice breaks everything and reassembles it."></a>
-    <a href="#" class="project-block s8" data-title="I had to make a world out of my need."></a>
-    <a href="#" class="project-block s9" data-title="There's something wrong with the sky and it's me."></a>
+    <div class="column">
+      <a href="#" class="project-block s1" data-title="I can no longer tell the difference between waiting and being."></a>
+      <a href="#" class="project-block s2" data-title="I refuse to be contained in any idea of form."></a>
+      <a href="#" class="project-block s3" data-title="The soul is the last address of all theory."></a>
+    </div>
+    <div class="column">
+      <a href="#" class="project-block s4" data-title="One does not see the kingdom of heaven unless one is poor."></a>
+      <a href="#" class="project-block s5" data-title="I do not doubt I am bound for the edge of something."></a>
+      <a href="#" class="project-block s6" data-title="My thinking moves like a ghost through a wall."></a>
+    </div>
+    <div class="column">
+      <a href="#" class="project-block s7" data-title="My voice breaks everything and reassembles it."></a>
+      <a href="#" class="project-block s8" data-title="I had to make a world out of my need."></a>
+      <a href="#" class="project-block s9" data-title="There's something wrong with the sky and it's me."></a>
+    </div>
   </div>
 
   <div class="cursor-text" id="cursorText"></div>
@@ -77,10 +86,9 @@
     const cursorText = document.getElementById('cursorText');
     const blocks = document.querySelectorAll('.project-block');
 
-    // Light pastel random background color generator
     function randomPastel() {
       const hue = Math.floor(Math.random() * 360);
-      return `hsl(${hue}, 70%, 85%)`; // light pastel
+      return `hsl(${hue}, 70%, 85%)`;
     }
 
     blocks.forEach(block => {
@@ -92,15 +100,4 @@
       });
 
       block.addEventListener('mouseleave', () => {
-        cursorText.style.opacity = '0';
-      });
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      cursorText.style.left = e.pageX + 15 + 'px';
-      cursorText.style.top = e.pageY + 15 + 'px';
-    });
-  </script>
-
-</body>
-</html>
+        c
