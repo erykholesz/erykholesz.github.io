@@ -143,7 +143,7 @@
       });
 
       block.addEventListener('click', () => {
-        const index = block.getAttribute('data-index');
+       const index = parseInt(block.getAttribute('data-index'), 10);
         poemContainer.innerText = longProse[index];
       });
     });
