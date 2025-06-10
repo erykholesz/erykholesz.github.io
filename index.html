@@ -5,98 +5,97 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio</title>
- <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: white;
-    height: 100vh;
-    font-family: 'Times New Roman', serif;
-    overflow: hidden;
-    display: flex;
-  }
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      height: 100vh;
+      font-family: 'Times New Roman', serif;
+      overflow: hidden;
+      display: flex;
+    }
 
-  .left-half, .right-half {
-    width: 50vw;
-    height: 100vh;
-  }
+    .left-half, .right-half {
+      width: 50vw;
+      height: 100vh;
+    }
 
-  .left-half {
-    background: white;
-    position: relative;
-    overflow-y: auto;
-  }
+    .left-half {
+      background: white;
+      position: relative;
+      overflow-y: auto;
+    }
 
-  .right-half {
-    position: relative;
-    overflow: hidden;
-    background: white;
-  }
+    .right-half {
+      position: relative;
+      overflow: hidden;
+      background: white;
+    }
 
-  .scroll-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0px;
-    gap: 0px;
-    height: 100%;
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
-  }
+    .scroll-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 0px;
+      gap: 0px;
+      height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
 
-  .scroll-column::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
+    .scroll-column::-webkit-scrollbar {
+      display: none;
+    }
 
-  .project-block {
-    background-color: #e6e6e6;
-    display: block;
-    cursor: pointer;
-    width: 480px; /* uniform width */
-  }
+    .project-block {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+      cursor: pointer;
+      width: 480px;
+    }
 
-  /* Maintain 3:4 ratio (vertical and horizontal) */
-  .s1, .s3, .s5, .s7 {
-    height: 640px; /* vertical */
-  }
+    .s1, .s3, .s5, .s7 {
+      height: 640px;
+    }
 
-  .s2, .s4, .s6, .s8, .s9 {
-    height: 360px; /* horizontal */
-  }
+    .s2, .s4, .s6, .s8, .s9 {
+      height: 360px;
+    }
 
-  .cursor-text {
-    position: absolute;
-    pointer-events: none;
-    font-size: 14pt;
-    font-style: italic;
-    color: #111;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    text-transform: lowercase;
-    z-index: 100;
-    max-width: 200px;
-  }
+    .cursor-text {
+      position: absolute;
+      pointer-events: none;
+      font-size: 14pt;
+      font-style: italic;
+      color: #111;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      text-transform: lowercase;
+      z-index: 100;
+      max-width: 200px;
+    }
 
-  .poem-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 30px;
-    width: 100%;
-    height: 100%;
-    background: white;
-    overflow-y: auto;
-    color: #222;
-    font-size: 18pt;
-    line-height: 1.6;
-  }
-</style>
+    .poem-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 30px;
+      width: 100%;
+      height: 100%;
+      background: white;
+      overflow-y: auto;
+      color: #222;
+      font-size: 18pt;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="left-half" id="poemContainer">
-    <!-- long prose text appears here, no title -->
-  </div>
+  <div class="left-half" id="poemContainer"></div>
 
   <div class="right-half">
     <div class="scroll-column">
@@ -119,74 +118,20 @@
     const blocks = document.querySelectorAll('.project-block');
     const poemContainer = document.getElementById('poemContainer');
 
-    // Real-ish longer prose samples (approx 1000-1200 words each)
-    const longProse = [
-`I am nearing a confine. Miles high and entire non - nato member nations long is the wall I seem to have hit. There were foxes here last time I checked, yet as the woman spoke today I find them mangled, bloodied. They do not say a thing, so I pass, I’m restless. Overstimulated to the point of no return I choose to choose. My last decision a grand finish the way only a retired poet stops thinking or perhaps stops to think. What I am is many things but what I’m not are none. Grammatically this might not make much sense but all I ask is for someone to listen. Simple as that, ignoring how tough it is to focus on twelve streams at once I beg: have you ever not known of an ad? Has there been a time pre - advertisement? Love the word! Very French! Akin baguette.
-
-There once was a family unit surrounding whatever fragment of my body had surfaced. A sense of sliminess, a scent in the air but the chunk borders are hidden and the command I seem to forget. I must admit, this was a Minecraft reference, sue me if for nostalgia’s sake. 
-
-They say top of the bell curve is average though I refuse to believe them. Whoever said “them” really is. Once there was a time I’d get called special and I will not ever settle for less. In the year 2024 I saw a forest burn in the deep Pacific north-west. I saw starfish dead with a virus, not the Wuhan kind although that would be funny in a sense. The way 9/11 is funny as long as you’re not the one dead. `,
-
-`In the soft light of early spring, the world seemed to awaken slowly, stretching its limbs after the long, cold embrace of winter. Tender shoots pushed through the thawing earth, reaching for the sun’s gentle warmth. The air was fragrant with the promise of renewal, carrying whispers of life yet to come. Along the winding paths, petals unfurled like delicate flags, their colors vibrant against the still-damp soil.
-
-There was a magic in this time — a quiet excitement in the subtle transformations that escaped hurried notice. The first song of the robin, the gentle ripple of a brook, the faint hum of bees stirring from their slumber. It was a season of possibilities, where every breath held the potential for growth and change.
-
-She walked these paths often, letting her thoughts drift like clouds across the sky. The trees, bare but patient, stood as reminders that rest and renewal were part of a greater cycle. Her heart, too, found solace in the rhythm of the earth, learning to trust in the unfolding of days and nights.
-
-This was a time for planting seeds, both in soil and soul. For nurturing dreams, for quiet reflection, and for gentle hope. And as the world blossomed anew, so too did she find herself blossoming — in strength, in grace, and in the boundless capacity to embrace what lay ahead.`,
-
-`Close to me, and closer still, the quiet murmur of the evening winds carried tales of distant lands and forgotten times. The sky stretched wide and deep above, a canvas painted with the fading hues of sunset. Stars began their silent vigil, blinking softly through the veil of twilight.
-
-In this moment, everything felt suspended — between day and night, between what was and what might be. Her thoughts drifted like the leaves caught in a gentle eddy, swirling in patterns unseen. Memories mingled with hopes, weaving a delicate lace of light and shadow.
-
-She thought of the people she had loved, the places she had been, and the dreams she carried like precious lanterns against the dark. The world was vast and mysterious, but in the stillness, she found a quiet certainty: that connection, in its many forms, was the thread that held her story together.
-
-With a soft breath, she let go of fear and embraced the beauty of uncertainty, knowing that each step forward was a step toward becoming more fully herself.`,
-
-`At night, the states of the mind wander as freely as the clouds drifting across a moonlit sky. The heartbeats of distant cities echo in the silence, each pulse a story waiting to be told. Dreams weave between waking thoughts, blurring the lines of reality and possibility.
-
-The darkness holds a kind of magic — a canvas for the imagination to paint with colors unseen in daylight. Here, the ordinary becomes extraordinary, and the soul speaks in whispers and shadows.
-
-In these quiet hours, she found the courage to face the parts of herself hidden in daylight’s glare. The fears, the hopes, the unspoken desires all mingled in a dance as old as time. And through this dance, she discovered a deeper understanding, a quiet strength that carried her through the turning of days.`,
-
-`In the pines, where the scent of sap and earth filled the air, there was a sense of timelessness that wrapped around her like a gentle shawl. The towering trees stood like silent sentinels, their needles whispering secrets to the breeze. Sunlight filtered through the branches, casting dappled patterns on the forest floor.
-
-She wandered among them, feeling the pulse of life beneath her feet — the hum of insects, the rustle of small creatures, the steady breath of the woods. Here, she felt connected to something greater, a vast web of being that transcended the noise of the world.
-
-The forest taught her patience and resilience, the quiet power of stillness. Each step was a meditation, a prayer, a celebration of the simple act of being present. And in that presence, she found a peace that words could scarcely capture.`,
-
-`Gratitude filled her heart like a rising tide, sweeping away doubt and fear with its gentle insistence. It was in the smile of a stranger, the touch of a loved one, the quiet moments of reflection that dotted her days. Each blessing, no matter how small, became a light in the darkness.
-
-She learned to see the world through eyes softened by appreciation, finding joy in the ordinary and wonder in the mundane. This shift transformed her life, turning hardship into opportunity, sorrow into growth.
-
-With gratitude as her guide, she moved forward with an open heart and steady steps, ready to meet whatever came with grace and courage.`,
-
-`Reason and other women sat around the table, their voices weaving a tapestry of thought and feeling. Ideas sparked and flickered, illuminating corners of understanding previously hidden. The dance of intellect and intuition played out in a harmony both complex and beautiful.
-
-She listened and spoke, learning to trust the rhythm of her own mind amid the chorus. The interplay of logic and emotion, certainty and doubt, created a space where creativity flourished.
-
-In this gathering, she found a mirror for her own journey — the balance of head and heart, the courage to question and the wisdom to accept. And from this balance, a new path emerged, rich with possibility and promise.`,
-
-`Mysteries of small houses revealed themselves in the worn floorboards and creaking doors, in the faded photographs and whispered stories passed down through generations. Each room held echoes of laughter and tears, of celebrations and farewells.
-
-She explored these spaces with reverence, tracing the lines of memory etched into walls and windows. The ordinary details became extraordinary, a testament to the lives lived within.
-
-In this quiet exploration, she discovered a connection to the past that grounded her in the present, a reminder that all stories are part of a greater whole.`,
-
-`Culture of one blossomed quietly in the space between conformity and rebellion. It was a delicate dance of identity, shaped by influences and experiences, yet distinctly her own. The traditions of many mingled with the pulse of innovation, creating a vibrant mosaic.
-
-She embraced the contradictions and complexities, finding strength in authenticity. In the solitude of self-discovery, she uncovered the freedom to create a life that reflected her truest essence.
-
-And in that freedom, she found a voice that sang with clarity and power, echoing across the landscape of her dreams.`
+    const imageFiles = [
+      '1290.jpg',
+      '12103.jpg',
+      '12106.jpg',
+      '1290.jpg',
+      '12103.jpg',
+      '12106.jpg',
+      '1290.jpg',
+      '12103.jpg',
+      '12106.jpg'
     ];
 
-    function randomPastel() {
-      const hue = Math.floor(Math.random() * 360);
-      return `hsl(${hue}, 70%, 85%)`;
-    }
-
-    blocks.forEach(block => {
-      block.style.backgroundColor = randomPastel();
+    blocks.forEach((block, i) => {
+      block.style.backgroundImage = `url('${imageFiles[i]}')`;
 
       block.addEventListener('mouseenter', () => {
         cursorText.textContent = block.getAttribute('data-title');
